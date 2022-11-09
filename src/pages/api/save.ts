@@ -7,7 +7,7 @@ const fromBase64 = (value:any) =>{
     return buff.toString('ascii')
 }
 
-const handler =  async(req:any, res:any) =>{
+const handler =  async(req:NextApiRequest, res:NextApiResponse) =>{
     try{
         await doc.useServiceAccountAuth({
             client_email:process.env.SHEET_CLIENT_EMAIL,
