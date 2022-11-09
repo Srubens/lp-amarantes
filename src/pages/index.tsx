@@ -1,8 +1,7 @@
 import { Header, Footer } from "@components/index"
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
-import Swal from 'sweetalert2/dist/sweetalert2'
-import 'node_modules/sweetalert2/dist/sweetalert2.min.css'
+import Swal from "sweetalert2"
 
 
 const Home = () => {
@@ -28,7 +27,7 @@ const Home = () => {
     uf:''
   })
 
-  const checkCEP = (e) =>{
+  const checkCEP = (e:any):any =>{
     const cep = e?.target.value.replace(/\D/g,'')
     // console.log(cep)
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
@@ -49,7 +48,7 @@ const Home = () => {
          
   }
 
-  const onChange = (evt) =>{
+  const onChange = (evt:any):any =>{
     const value = evt.target.value 
     const key = evt.target.name
     // console.log(evt.target.value)
@@ -59,11 +58,11 @@ const Home = () => {
     }))
 } 
 
-const onSubmit = (e) =>{
+const onSubmit = (e:any):any =>{
   console.log(e)
 }
 
-const salvar = async(e) =>{
+const salvar = async(e:any) =>{
   e.preventDefault()
   try{
     const response = await fetch('/api/save', {
