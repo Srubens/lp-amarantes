@@ -2,11 +2,16 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID)
 
+const fromBase64 = (value:any) =>{
+    const buff = new Buffer(value,'base64')
+    return buff.toString('ascii')
+}
+
 const handler =  async(req:any, res:any) =>{
     try{
         await doc.useServiceAccountAuth({
             client_email:process.env.SHEET_CLIENT_EMAIL,
-            private_key: process.env.SHEET_PRIVATE_KEY
+            private_key: fromBase64(process.env.SHEET_PRIVATE_KEY)
         })
         await doc.loadInfo()
 
