@@ -1,8 +1,7 @@
 import { Header, Footer } from "@components/index"
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
-import Swal from "sweetalert2"
-import "sweetalert2/dist/sweetalert2.min.css"
+import Swal from 'sweetalert2'
 
 
 const Home = () => {
