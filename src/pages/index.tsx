@@ -70,12 +70,12 @@ const salvar = async(e:any) =>{
       body:JSON.stringify(form)
     })
     const data = await response.json()
-    setSucess(true)
-    setRetorno(data)
     Swal.fire({
       icon:'success',
-      title:'Cadastro realizado com sucesso'
+      html:'Cadastro realizado com sucesso'
     })
+    setSucess(true)
+    setRetorno(data)
     form.nome='',
     form.sobrenome='',
     form.cpf='',
