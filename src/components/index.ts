@@ -1,3 +1,5 @@
 export { default as Logo } from './Logo'
 export { default as LogoAmarantes } from './LogoAmarantes'
 export { default as LogoKeno } from './LogoKeno'
+export { default as Header } from './header/index'
+export { default as Footer } from './footer/index'

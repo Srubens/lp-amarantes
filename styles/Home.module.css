@@ -117,6 +117,11 @@
   margin-left: 4vw;
 }
 
+.ip2-phone{
+  padding: 15px 20px;
+  width: 205px;
+}
+
 /* FOOTER  */
 .bg1_footer{  
   width: 1920px;
@@ -165,7 +170,7 @@
 
   .main{
     max-width: 576px;
-    margin:42vw 50vw 0;
+    margin:42vw 52vw 0;
   }
 
   .ip1{
@@ -178,10 +183,21 @@
   
   .ip2{
     margin-bottom: 15px;
+    width: 405px;
+
   }
   
   .ip2-1{
     margin-bottom: 15px;
+    margin-left: 0;
+  }
+  .ip-phone.col-8{
+    width: 74%;
+  }
+
+  .ip2-phone{
+    padding: 15px 20px;
+    width: 260px;
   }
 
   .bg1_footer{  

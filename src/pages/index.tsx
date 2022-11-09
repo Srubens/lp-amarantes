@@ -1,5 +1,5 @@
-import {LogoAmarantes, LogoKeno} from "@components/index"
-import { useState } from "react"
+import { Header, Footer } from "@components/index"
+import React, {useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2"
 
@@ -9,6 +9,7 @@ const Home = () => {
   const { register, handleSubmit, setValue, setFocus } = useForm()
 
   const [sucess, setSucess] = useState(false)
+  const [retorno, setRetorno] = useState({})
 
   const [form, setForm] =useState({
     nome:'',
@@ -50,7 +51,7 @@ const Home = () => {
   const onChange = (evt:any):any =>{
     const value = evt.target.value 
     const key = evt.target.name
-    console.log(evt.target.value)
+    // console.log(evt.target.value)
     setForm(old => ({
         ...old,
         [key]:value
@@ -63,6 +64,7 @@ const onSubmit = (e:any):any =>{
 
 const salvar = async(e:any) =>{
   e.preventDefault()
+
   try{
     const response = await fetch('/api/save', {
       method:'POST',
@@ -70,7 +72,25 @@ const salvar = async(e:any) =>{
     })
     const data = await response.json()
     setSucess(true)
-    console.log('Envio de dados:', data)
+    setRetorno(data)
+    Swal.fire({
+      icon:'success',
+      title:'Cadastro realizado com sucesso'
+    })
+    form.nome='',
+    form.sobrenome='',
+    form.cpf='',
+    form.email='',
+    form.ddd='',
+    form.telefone='',
+    form.nascimento='',
+    form.cep='',
+    form.logradouro='',
+    form.numero='',
+    form.bairro='',
+    form.localidade='',
+    form.uf=''
+    console.log(data)
   }catch(err){
     console.log('Error: ', err)
   }
@@ -80,24 +100,7 @@ const salvar = async(e:any) =>{
   return (
 
     <>
-    <div className="fluid">
-        <div className="bg1">
-          <div className="bg2">
-            <div className="bg_yellow">
-              <div className="bg_green">
-
-                  <div className="main_top">
-                    <div className="bg_folha1"></div>  
-                    <div className="logo"></div>  
-                    <div className="bg_folha2"></div>
-                  </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <Header/>
     <div className="main">
       <div className="container">
         <header className='main_header d-flex flex-column justify-content-center align-items-center text-center' >
@@ -124,7 +127,7 @@ const salvar = async(e:any) =>{
           <div className="d-flex flex-md-row flex-column ">
             <div className="col-12 col-md-6">
 
-              <div className="d-flex flex-md-row justify-content-between">
+              <div className="d-flex flex-column flex-md-row justify-content-between ">
                 <div className="col-md-5">
                   <input className='form-control ip2' name="cpf" value={form.cpf} type="text" placeholder='CPF' onChange={onChange}  />
                 </div>
@@ -140,8 +143,8 @@ const salvar = async(e:any) =>{
                 <div className="col-md-2 col-3">
                   <input className='form-control ip2-1' name="ddd" value={form.ddd} type="text" placeholder='DDD' onChange={onChange} />
                 </div>
-                <div className="col-md-6 col-8 ">
-                  <input className='form-control ip2' name="telefone" value={form.telefone} type="text" placeholder='Telefone'  onChange={onChange} />
+                <div className="ip-phone col-md-6 col-8 ">
+                  <input className='form-control ip2-phone' name="telefone" value={form.telefone} type="text" placeholder='Telefone'  onChange={onChange} />
                 </div>
               </div>
             </div>
@@ -151,7 +154,7 @@ const salvar = async(e:any) =>{
             <div className="d-flex flex-md-row ">
               <div className="col-12 col-md-4">
                 <label>Data de Nascimento:</label>
-                <input className='form-control' name="nascimento" value={form.nascimento} type="date" placeholder='Nascimento' onChange={onChange} />
+                <input className='form-control ip2' name="nascimento" value={form.nascimento} type="date" placeholder='Nascimento' onChange={onChange} />
               </div>
             </div>
           </div>
@@ -199,41 +202,7 @@ const salvar = async(e:any) =>{
       </div>
     </div>
 
-    <div className="footer">
-      <div className="bg1_footer">
-        <div className="d-flex flex-md-row flex-column justify-content-around align-items-center ">
-          <div className="logo_amarantes" >
-            <LogoAmarantes/>
-          </div>
-          <div>
-          <p>
-          Av. Conselheiro Aguiar, 1748 - 3º Andar - Boa Viagem, Recife - PE, 51111-011 (81) 2123-5655
-          </p>
-          </div>
-          <div>
-            <p>social icons</p>
-          </div>
-        </div>
-        <br/>
-        <div className="d-flex flex-md-row flex-column justify-content-around align-items-center text-center mb-4">
-          <div className="termos" >
-            <a href="#" target="_blank" rel="noopener noreferrer">Politica de Privacidade</a>
-            <a href="#" target="_blank" className="termos_use" rel="noopener noreferrer">Termos de uso</a>
-          </div>
-
-          <div className="copy">
-            <p>
-            &copy; 2022 - Grupo Amarante - Todos os direitos reservados
-            </p>
-          </div>
-
-          <div className="logoKeno" >
-            <LogoKeno/>
-          </div>
-
-        </div>
-      </div>
-    </div>
+   <Footer/>
 
     </>
   )
