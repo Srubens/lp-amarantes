@@ -64,9 +64,8 @@ const onSubmit = (e:any):any =>{
 
 const salvar = async(e:any) =>{
   e.preventDefault()
-  const api = 'https://lp-amarantes.vercel.app/api/save'
   try{
-    const response = await fetch(api, {
+    const response = await fetch('/api/save', {
       method:'POST',
       body:JSON.stringify(form)
     })
