@@ -1,0 +1,202 @@
+.bg1{
+    width: 1920px;
+    max-width: 100%;
+    background: url('../public/images/bg_top1.svg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    font-size: 0;
+    height: 140px;
+    z-index: 0;
+}
+
+.bg2{
+  margin-top: 0;
+  width: 1920px;
+  max-width: 100%;
+  background: url('../public/images/bg_top2.svg');
+  background-size:contain;
+  background-repeat: no-repeat;
+  font-size: 0;
+  height: 140px;
+  z-index: 1;
+}
+
+.bg_yellow{
+  width: 1920px;
+  max-width: 100%;
+  background: url('../public/images/bg_top_amarelo.svg');
+  background-size:cover;
+  font-size: 0;
+  height: 43px;
+  z-index: 2;
+}
+
+.bg_green{
+  width: 1920px;
+  max-width: 100%;
+  background: url('../public/images/bg_top_verde.svg');
+  background-size:cover;
+  font-size: 0;
+  height: 38px;
+  z-index: 2;
+}
+
+.main_top{
+  height: 60px;
+  width: 650px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:8vw 28vw;
+  position: absolute;
+}
+
+.bg_folha1{
+  width: 95px;
+  height: 95px;
+  background: url('../public/images/folha1.svg');
+  background-repeat: no-repeat;
+}
+
+.logo{
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
+  background: url('../public/images/logo1.svg');
+  background-repeat: no-repeat;
+}
+
+.bg_folha2{
+  width: 95px;
+  height: 95px;
+  background: url('../public/images/folha2.svg');
+  background-repeat: no-repeat;
+}
+
+/* MAIN CONTENT  */
+.main{
+  max-width: 100%;
+  width: 990px;
+  margin:auto;
+}
+
+.main_header{
+  margin-top:10vw;
+}
+
+.main_header h1{
+  color:#19411D;
+  text-transform: uppercase;
+  font-size: 36;
+  font-weight: bold;
+}
+.main_header p{
+  margin-top: 50px;
+}
+
+.ip1{
+  padding: 15px 20px;
+  width: 400px;
+}
+
+.ip1-address{
+  padding: 15px 20px;
+  width: 400px;
+  margin-left: 2vw;
+}
+
+.ip2{
+  padding: 15px 20px;
+  width: 205px;
+}
+
+.ip2-1{
+  padding: 15px 20px;
+  width: 102px;
+  margin-left: 4vw;
+}
+
+/* FOOTER  */
+.bg1_footer{  
+  width: 1920px;
+  max-width: 100%;
+  background: url('../public/images/bg-teste.svg');
+  height: 349px; 
+  background-repeat: no-repeat;
+  background-size:cover;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.termos{
+  margin-right: 2vw;
+}
+
+.termos_use{
+  margin-left: 15px;
+}
+
+.copy{
+  margin-right: 8vw;
+}
+
+@media(max-width:576px){
+  .bg1{
+      max-width: 990px;
+      background: url('../public/images/bg_top1.svg');
+      background-size:contain;
+      background-repeat: no-repeat;
+      font-size: 0;
+      height: 140px;
+      z-index: 0;
+  }
+
+  .main_top{
+    height: 60px;
+    max-width: 650px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:30vw 44vw;
+    position: absolute;
+  }
+
+  .main{
+    max-width: 576px;
+    margin:42vw 50vw 0;
+  }
+
+  .ip1{
+    margin-bottom: 15px;
+  }
+  
+  .ip1-address{
+    margin-bottom: 15px;
+  }
+  
+  .ip2{
+    margin-bottom: 15px;
+  }
+  
+  .ip2-1{
+    margin-bottom: 15px;
+  }
+
+  .bg1_footer{  
+    max-width: 990px;
+    background: url('../public/images/bg-teste.svg');
+    height: 76vh; 
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .logo_amarantes{
+    margin-top: 150px;
+  }
+
+}
