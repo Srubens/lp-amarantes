@@ -1,6 +1,5 @@
 import { Header, Footer } from "@components/index"
 import React, { useState } from "react"
-import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2'
 
@@ -30,9 +29,6 @@ const Home = () => {
     uf:''
   })
 
-  useEffect(() =>{
-    console.log(checkCEP)
-  },[form])
 
   const nome = form.nome
   const email = form.email
@@ -72,6 +68,27 @@ const onSubmit = (e:any):any =>{
   console.log(e)
 }
 
+const resetInputs = ():any =>{
+  return setForm({
+    nome:'',
+    sobrenome:'',
+    cpf:'',
+    email:'',
+    ddd:'',
+    telefone:'',
+    nascimento:'',
+    cep:'',
+    logradouro:'',
+    numero:'',
+    bairro:'',
+    localidade:'',
+    uf:''
+  })
+  // console.log('set form ',setForm)
+  // console.log('value ', value)
+  // console.log('key ', key)
+}
+
 const salvar = async(e:any) =>{
   e.preventDefault()
   try{
@@ -97,6 +114,7 @@ const salvar = async(e:any) =>{
         })
         return false;
     }else{
+      
       Swal.fire({
         icon:'success',
         html:'Cadastro realizado com sucesso'
@@ -106,8 +124,10 @@ const salvar = async(e:any) =>{
         body:JSON.stringify(form)
       })
       const data = await response.json()
+      resetInputs(data)
       setSucess(true)
       setRetorno(data)
+      
       console.log(data)
       form.nome='',
       form.sobrenome='',
