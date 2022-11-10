@@ -70,7 +70,7 @@ const onSubmit = (e:any):any =>{
 
 const resetInputs = (evt:any):any =>{
   const data = evt
-  setForm(old =>({
+  setForm({
     nome:'',
     sobrenome:'',
     cpf:'',
@@ -84,7 +84,7 @@ const resetInputs = (evt:any):any =>{
     bairro:'',
     localidade:'',
     uf:''
-  })) 
+  })
   console.log('Vindo do reset ', evt)
 }
 
