@@ -1,12 +1,15 @@
 import { Header, Footer } from "@components/index"
 import React, { useState } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2'
 
 
 const Home = () => {
 
-  const { register, handleSubmit, setValue, setFocus } = useForm()
+  const { register, handleSubmit, setValue, setFocus, reset } = useForm()
+
+  
 
   const [sucess, setSucess] = useState(false)
   const [retorno, setRetorno] = useState({})
@@ -26,6 +29,10 @@ const Home = () => {
     localidade:'',
     uf:''
   })
+
+  useEffect(() =>{
+    console.log(form)
+  },[form])
 
   const nome = form.nome
   const email = form.email
@@ -102,20 +109,20 @@ const salvar = async(e:any) =>{
       setSucess(true)
       setRetorno(data)
       console.log(data)
+      form.nome='',
+      form.sobrenome='',
+      form.cpf='',
+      form.email='',
+      form.ddd='',
+      form.telefone='',
+      form.nascimento='',
+      form.cep='',
+      form.logradouro='',
+      form.numero='',
+      form.bairro='',
+      form.localidade='',
+      form.uf=''
     }
-    form.nome='',
-    form.sobrenome='',
-    form.cpf='',
-    form.email='',
-    form.ddd='',
-    form.telefone='',
-    form.nascimento='',
-    form.cep='',
-    form.logradouro='',
-    form.numero='',
-    form.bairro='',
-    form.localidade='',
-    form.uf=''
     
 
   }catch(err){
