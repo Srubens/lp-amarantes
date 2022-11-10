@@ -7,7 +7,8 @@ const fromBase64 = (value:any) =>{
     return buff.toString('ascii')
 }
 
-const handler =  async(req:NextApiRequest, res:NextApiResponse) =>{
+// eslint-disable-next-line import/no-anonymous-default-export
+export default  async(req:NextApiRequest, res:NextApiResponse) =>{
     try{
         await doc.useServiceAccountAuth({
             client_email:process.env.SHEET_CLIENT_EMAIL,
@@ -31,6 +32,7 @@ const handler =  async(req:NextApiRequest, res:NextApiResponse) =>{
            nome:data.nome,
            sobrenome:data.sobrenome,
            cpf:data.cpf,
+           email:data.email,
            ddd:data.ddd,
            telefone:data.telefone,
            nascimento:data.nascimento,
@@ -47,5 +49,3 @@ const handler =  async(req:NextApiRequest, res:NextApiResponse) =>{
         console.log('Error: ', err)
     }
 }
-
-export default handler
