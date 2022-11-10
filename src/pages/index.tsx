@@ -124,7 +124,7 @@ const salvar = async(e:any) =>{
         body:JSON.stringify(form)
       })
       const data = await response.json()
-      resetInputs(data)
+      resetInputs()
       setSucess(true)
       setRetorno(data)
       
