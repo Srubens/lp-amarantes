@@ -99,12 +99,6 @@ const salvar = async(e:any) =>{
         html:'Cadastro realizado com sucesso'
       })
 
-      const response = await fetch('/api/save', {
-        method:'POST',
-        body:JSON.stringify(form)
-      })
-      const data = await response.json()
-
       setForm({
         nome:'',
         sobrenome:'',
@@ -120,6 +114,14 @@ const salvar = async(e:any) =>{
         localidade:'',
         uf:''
       })
+
+      const response = await fetch('/api/save', {
+        method:'POST',
+        body:JSON.stringify(form)
+      })
+      const data = await response.json()
+
+      
 
       //console.log(data)
       setSucess(true)
