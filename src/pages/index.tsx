@@ -101,7 +101,7 @@ const salvar = async(e:any) =>{
       const data = await response.json()
       setSucess(true)
       setRetorno(data)
-      
+      console.log(data)
     }
     form.nome='',
     form.sobrenome='',
@@ -116,7 +116,7 @@ const salvar = async(e:any) =>{
     form.bairro='',
     form.localidade='',
     form.uf=''
-    console.log(data)
+    
 
   }catch(err){
     console.log('Error: ', err)
