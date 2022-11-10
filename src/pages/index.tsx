@@ -29,7 +29,7 @@ const Home = () => {
 
   const nome = form.nome
   const email = form.email
-  
+
   const checkCEP = (e:any):any =>{
     const cep = e?.target.value.replace(/\D/g,'')
     // console.log(cep)
@@ -102,21 +102,21 @@ const salvar = async(e:any) =>{
       setSucess(true)
       setRetorno(data)
       
-      form.nome='',
-      form.sobrenome='',
-      form.cpf='',
-      form.email='',
-      form.ddd='',
-      form.telefone='',
-      form.nascimento='',
-      form.cep='',
-      form.logradouro='',
-      form.numero='',
-      form.bairro='',
-      form.localidade='',
-      form.uf=''
-      console.log(data)
     }
+    form.nome='',
+    form.sobrenome='',
+    form.cpf='',
+    form.email='',
+    form.ddd='',
+    form.telefone='',
+    form.nascimento='',
+    form.cep='',
+    form.logradouro='',
+    form.numero='',
+    form.bairro='',
+    form.localidade='',
+    form.uf=''
+    console.log(data)
 
   }catch(err){
     console.log('Error: ', err)
