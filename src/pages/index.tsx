@@ -120,10 +120,10 @@ const salvar = async(e:any) =>{
         localidade:'',
         uf:''
       })
-      
-      console.log(data)
+
+      //console.log(data)
       setSucess(true)
-      setRetorno(data)
+      //setRetorno(data)
  
     }
     
