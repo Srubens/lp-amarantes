@@ -68,26 +68,6 @@ const onSubmit = (e:any):any =>{
   console.log(e)
 }
 
-const resetInputs = (evt:any):any =>{
-  const data = evt
-  setForm({
-    nome:'',
-    sobrenome:'',
-    cpf:'',
-    email:'',
-    ddd:'',
-    telefone:'',
-    nascimento:'',
-    cep:'',
-    logradouro:'',
-    numero:'',
-    bairro:'',
-    localidade:'',
-    uf:''
-  })
-  console.log('Vindo do reset ', evt)
-}
-
 const salvar = async(e:any) =>{
   e.preventDefault()
   try{
@@ -118,13 +98,30 @@ const salvar = async(e:any) =>{
         icon:'success',
         html:'Cadastro realizado com sucesso'
       })
+
       const response = await fetch('/api/save', {
         method:'POST',
         body:JSON.stringify(form)
       })
       const data = await response.json()
+
+      setForm({
+        nome:'',
+        sobrenome:'',
+        cpf:'',
+        email:'',
+        ddd:'',
+        telefone:'',
+        nascimento:'',
+        cep:'',
+        logradouro:'',
+        numero:'',
+        bairro:'',
+        localidade:'',
+        uf:''
+      })
+      
       console.log(data)
-      resetInputs(data)
       setSucess(true)
       setRetorno(data)
  
