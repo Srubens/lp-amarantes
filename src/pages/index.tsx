@@ -68,8 +68,9 @@ const onSubmit = (e:any):any =>{
   console.log(e)
 }
 
-const resetInputs = ():any =>{
-  return setForm({
+const resetInputs = (evt:any):any =>{
+  const data = evt
+  setForm(old =>({
     nome:'',
     sobrenome:'',
     cpf:'',
@@ -83,10 +84,8 @@ const resetInputs = ():any =>{
     bairro:'',
     localidade:'',
     uf:''
-  })
-  // console.log('set form ',setForm)
-  // console.log('value ', value)
-  // console.log('key ', key)
+  })) 
+  console.log('Vindo do reset ', evt)
 }
 
 const salvar = async(e:any) =>{
@@ -124,24 +123,11 @@ const salvar = async(e:any) =>{
         body:JSON.stringify(form)
       })
       const data = await response.json()
-      resetInputs()
+      console.log(data)
+      resetInputs(data)
       setSucess(true)
       setRetorno(data)
-      
-      console.log(data)
-      form.nome='',
-      form.sobrenome='',
-      form.cpf='',
-      form.email='',
-      form.ddd='',
-      form.telefone='',
-      form.nascimento='',
-      form.cep='',
-      form.logradouro='',
-      form.numero='',
-      form.bairro='',
-      form.localidade='',
-      form.uf=''
+ 
     }
     
 
