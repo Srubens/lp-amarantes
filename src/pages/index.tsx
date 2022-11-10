@@ -31,7 +31,7 @@ const Home = () => {
   })
 
   useEffect(() =>{
-    console.log(form)
+    console.log(checkCEP)
   },[form])
 
   const nome = form.nome
